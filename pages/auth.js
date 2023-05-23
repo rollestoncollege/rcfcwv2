@@ -10,16 +10,16 @@ export default function Profile() {
 
   async function sign_in() {
     console.log("Signing In");
-    process.env.NODE_ENV == "development" ? 
-    await supabase.auth.signIn({ email, password, redirectTo: window.location.origin + "/profile" }):
-    await supabase.auth.signIn({ email, password, redirectTo: "/profile"});
+    // process.env.NODE_ENV == "development" ? 
+    // await supabase.auth.signIn({ email, password, redirectTo: window.location.origin + "/profile" }):
+    await supabase.auth.signIn({ email, password}, {redirectTo: "https://localhost:3000/profile"});
     Router.push("/profile");
   }
   async function sign_up() {
     console.log("Creating account");
-    process.env.NODE_ENV == "development" ? 
-    await supabase.auth.signUp({ email, password, redirectTo: window.location.origin + "/afterSignUp" }):
-    await supabase.auth.signUp({ email, password, redirectTo: "/afterSignUp"});
+    // process.env.NODE_ENV == "development" ? 
+    // await supabase.auth.signUp({ email, password, redirectTo: window.location.origin + "/afterSignUp" }):
+    await supabase.auth.signUp({ email, password}, {redirectTo: "http://localhost:3000/afterSignUp"});
   }
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
