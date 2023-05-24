@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Card, Typography, Space, Button } from "@supabase/ui";
 import { supabase } from "../lib/initSupabase";
 import Navbar from "./components/navbar";
 import { useState } from "react";

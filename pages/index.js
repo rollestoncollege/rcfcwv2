@@ -1,4 +1,3 @@
-import { Card, Typography, Space } from "@supabase/ui";
 import { supabase } from "../lib/initSupabase";
 import Navbar from "./components/navbar";
 import useSessionStorage from './hooks/userData.js'
