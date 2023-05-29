@@ -7,20 +7,6 @@ export default function index({ user }) {
   return (
     <section className="bg-gray-50 dark:bg-gray-900 transition items-center justify-center h-screen grid-bg overflow-x-hidden">
       {Navbar(user)}
-      <div className="inset-0 flex-col justify-center items z-10 w-screen break-all pt-52">
-        <div className="w-full flex items-center ">
-          <div className=" w-96 h-96 relative z-0">
-            <div className="absolute inset-0 flex-col justify-center items z-10 pl-10 pt-20">
-              <p className="font-bold text-5xl pb-5 font-mono drop-shadow-lg">
-                Welcome To:
-              </p>
-              <p className="font-bold text-5xl font-mono text-blue-500 drop-shadow-lg">
-                Ako Tech 
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="w-screen">
         <div className="w-full max-w-lg m-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 pt-10">
           <div>
@@ -61,10 +47,10 @@ export default function index({ user }) {
 export async function getServerSideProps({ req }) {
   const { user } = await supabase.auth.api.getUserByCookie(req);
 
-  // if (!user) {
-  //   // If no user, redirect to index.
-  //   return { props: {}, redirect: { destination: '/', permanent: false } }
-  // }
+  if (!user) {
+    // If no user, redirect to index.
+    return { props: {}, redirect: { destination: '/auth?redirect=/dashboard', permanent: false } }
+  }
 
   // If there is a user, return it.
   return { props: { user } };

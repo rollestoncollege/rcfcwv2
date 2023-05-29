@@ -3,11 +3,14 @@ import { useEffect, useState } from "react";
 import Router from "next/router";
 
 export default function Profile() {
-    const [email, setFirst] = useState("");
-    const [password, setLast] = useState("");
+    const [firstName, setFirst] = useState("");
+    const [lastName, setLast] = useState("");
 
-    function setValues() {
-
+    async function setValues() {
+        const { error } = await supabase
+            .from('countries')
+            .update({ name: 'Australia' })
+            .eq('id', 1)
     }
 
     return (
@@ -40,7 +43,7 @@ export default function Profile() {
                                     <input
                                         type="text"
                                         name="first"
-                                        value={email}
+                                        value={firstName}
                                         onChange={(e) => {
                                             setFirst(e.currentTarget.value);
                                         }}
@@ -59,7 +62,7 @@ export default function Profile() {
                                     <input
                                         type="text"
                                         name="last"
-                                        value={password}
+                                        value={lastName}
                                         onChange={(e) => {
                                             setLast(e.currentTarget.value);
                                         }}

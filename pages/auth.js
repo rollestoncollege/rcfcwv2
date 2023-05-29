@@ -7,13 +7,15 @@ export default function Profile() {
   const [password, setPassword] = useState("");
   const router = Router.useRouter()
   var auth_state = (router.query.sign_up == "" ? "sign_up" : "sign_in");
+  var redirectTo = router.query.redirectTo
+  console.log(redirectTo)
 
   async function sign_in() {
     console.log("Signing In");
     // process.env.NODE_ENV == "development" ? 
     // await supabase.auth.signIn({ email, password, redirectTo: window.location.origin + "/profile" }):
     await supabase.auth.signIn({ email, password}, {redirectTo: "https://localhost:3000/profile"});
-    Router.push("/profile");
+    Router.push(redirectTo ? redirectTo : "/profile");
   }
   async function sign_up() {
     console.log("Creating account");
