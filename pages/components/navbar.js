@@ -9,7 +9,7 @@ export default function Navbar(user, current_page) {
       <nav className=" px-2 sm:px-4 py-2.5  fixed w-full z-20 top-0 left-0 border-b border-gray-200  backdrop-blur-sm">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="/" className="flex items-center drop-shadow-sm">
-            <img src="/large-320.png" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo"></img>
+            <img src="https://d1q6c2tim6ecyb.cloudfront.net/large-320.png" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo"></img>
           </a>
           <div className="flex md:order-2">
             {user ?

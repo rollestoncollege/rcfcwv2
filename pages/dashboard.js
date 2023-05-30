@@ -13,7 +13,7 @@ export default function index({ user }) {
             <div className="flex flex-col items-center pb-10">
               <img
                 className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                src="/blank-user-profile.jpg"
+                src="https://d1q6c2tim6ecyb.cloudfront.net/blank-user-profile.jpg"
                 alt="Profile Image"
               />
               <h5 className="mb-1 text-xl font-medium text-gray-900 ">

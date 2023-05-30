@@ -24,7 +24,7 @@ export default function Profile({ user }) {
                     >
                         <img
                             className="w-52 mr-2"
-                            src="https://raw.githubusercontent.com/AkoTechApp/Logos/main/large/light/large-320.png"
+                            src="https://d1q6c2tim6ecyb.cloudfront.net/large-320.png"
                             alt="logo"
                         />
                     </a>

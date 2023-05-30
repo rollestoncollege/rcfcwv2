@@ -54,7 +54,7 @@ export default function Profile() {
           >
             <img
               className="w-52 mr-2"
-              src="/large-320.png"
+              src="https://d1q6c2tim6ecyb.cloudfront.net/large-320.png"
               alt="logo"
             />
           </a>
