@@ -1,24 +1,24 @@
 import { supabase } from "../lib/initSupabase";
 import Navbar from "./components/navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useSessionStorage from "./hooks/userData.js";
 
-export default function Profile({ user }, {data}) {
+export default function Profile({ user }) {
   const [name, setName] = useState("")
-  console.log("User Data: ");
-  console.log(data);
+
 
   async function getName() {
-    // try {
       return await supabase.from('profile').select()
-      console.log({ data, error })
-      return data[0]["display_name"]
-    // } catch (TypeError) { }
   }
-
   getName().then(name => {
     console.log(name);
-    // setName(name)
+    setName(name.body[0].display_name)
   })
+  // useEffect(() => {
+  //   var debug_name = useSessionStorage()
+  //   console.log(debug_name);
+  //   setName(debug_name[0].display_name)
+  // })
 
   function showEditPanel() {
     document.getElementById("panel").classList += "max-w-3xl"

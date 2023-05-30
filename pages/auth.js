@@ -46,11 +46,11 @@ export default function Profile() {
   }, []);
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900 transition grid-bg">
+      <section className="bg-gray-50 transition grid-bg">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
           <a
             href="/"
-            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 "
           >
             <img
               className="w-52 mr-2"
@@ -58,9 +58,9 @@ export default function Profile() {
               alt="logo"
             />
           </a>
-          <div className="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 bg-white">
+          <div className="w-full  rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0  bg-white">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">
-              <h1 className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              <h1 className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl">
                 {auth_state == "sign_in"
                   ? "Sign in to your account"
                   : "Create a new account"}
@@ -69,7 +69,7 @@ export default function Profile() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Your email
                   </label>
@@ -88,7 +88,7 @@ export default function Profile() {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Password
                   </label>
@@ -111,32 +111,32 @@ export default function Profile() {
                         id="remember"
                         aria-describedby="remember"
                         type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 "
                         required=""
                       />
                     </div>
                     <div className="ml-3 text-sm">
                       <label
                         htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
+                        className="text-gray-500 "
                       >
                         Remember me
                       </label>
                     </div>
                   </div>
-                  {auth_state == "sign_in" ? <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-white ">Forgot password?</a> : ""}
+                  {auth_state == "sign_in" ? <a href="#" className="text-sm font-medium text-primary-600 hover:underline ">Forgot password?</a> : ""}
                   
                 </div>
                 <button
                   onClick={auth_state == "sign_in" ? sign_in : sign_up}
-                  className="w-full bg-gray-50  text-gray-900  dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800 drop-shadow-xl hover:drop-shadow-lg transition"
+                  className="w-full bg-gray-50  text-gray-900   focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  drop-shadow-xl hover:drop-shadow-lg transition"
                 >
                   {auth_state == "sign_in" ? "Sign In" : "Sign Up"}
                 </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <p className="text-sm font-light text-gray-500 ">
 
                   {auth_state == "sign_in" ? "Don’t have an account?" : "Already have an account?"}{" "}
-                  <a href={auth_state == "sign_in" ? "/auth?sign_up" : "/auth?sign_in"} className="font-medium text-primary-600 hover:underline dark:text-primary-500 ">
+                  <a href={auth_state == "sign_in" ? "/auth?sign_up" : "/auth?sign_in"} className="font-medium text-primary-600 hover:underline ">
                     {auth_state == "sign_in" ? "Sign Up" : "Sign In"}
                   </a>
                 </p>

@@ -5,7 +5,7 @@ import useSessionStorage from "./hooks/userData.js";
 export default function index({ user }) {
   const userData = useSessionStorage("user");
   return (
-    <section className="bg-gray-50 dark:bg-gray-900 transition items-center justify-center h-screen grid-bg overflow-x-hidden">
+    <section className="bg-gray-50 transition items-center justify-center h-screen grid-bg overflow-x-hidden">
       {Navbar(user)}
       <div className="inset-0 flex-col justify-center items z-10 w-screen break-all pt-52">
         <div className="w-full flex items-center ">
@@ -22,7 +22,7 @@ export default function index({ user }) {
         </div>
       </div>
       <div className="w-screen">
-        <div className="w-full max-w-lg m-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 pt-10">
+        <div className="w-full max-w-lg m-auto bg-white border border-gray-200 rounded-lg shadow pt-10">
           <div>
             <div className="flex flex-col items-center pb-10">
               <img
@@ -30,10 +30,10 @@ export default function index({ user }) {
                 src="/blank-user-profile.jpg"
                 alt="Profile Image"
               />
-              <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+              <h5 className="mb-1 text-xl font-medium text-gray-900 ">
                 {userData}
               </h5>
-              <span className="text-sm text-gray-500 dark:text-gray-400 p-5 px-10">
+              <span className="text-sm text-gray-500  p-5 px-10">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
                 natus vel impedit dolores, laborum culpa id minima facere
                 nostrum aperiam corrupti? Quibusdam, quae nam! Unde dolore magni

@@ -2,15 +2,16 @@ import { supabase } from "../lib/initSupabase";
 import { useEffect, useState } from "react";
 import Router from "next/router";
 
-export default function Profile() {
+export default function Profile({ user }) {
     const [firstName, setFirst] = useState("");
     const [lastName, setLast] = useState("");
-
+    console.log(user);
     async function setValues() {
         const { error } = await supabase
-            .from('countries')
-            .update({ name: 'Australia' })
-            .eq('id', 1)
+            .from('profile')
+            .update({ first_name:firstName, last_name:lastName, display_name:firstName + " " + lastName})
+            .eq('id', user.id)
+        Router.push("/profile")
     }
 
     return (
@@ -82,3 +83,16 @@ export default function Profile() {
         </>
     );
 }
+
+
+export async function getServerSideProps({ req }) {
+    const { user } = await supabase.auth.api.getUserByCookie(req);
+  
+    // if (!user) {
+    //   // If no user, redirect to index.
+    //   return { props: {}, redirect: { destination: '/', permanent: false } }
+    // }
+  
+    // If there is a user, return it.
+    return { props: { user } };
+  }
