@@ -9,7 +9,6 @@ const useSessionStorage = (name) => {
     // try {
       const { data, error } = await supabase.from('profile').select()
       console.log("Getting Data");
-      console.log( {data, error} );
       return data
     // } catch (TypeError) { }
   }
@@ -17,8 +16,7 @@ const useSessionStorage = (name) => {
   useEffect(() => {
       getName().then(e => {
         console.log("Running From Hocks")
-        console.log(e);
-        setValue(e)
+        setValue(e[0])
       })
   }, [])
 

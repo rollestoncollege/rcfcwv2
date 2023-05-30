@@ -1,9 +1,27 @@
+import { useEffect, useState } from "react";
 import { supabase } from "../lib/initSupabase";
 import Navbar from "./components/navbar";
 import useSessionStorage from "./hooks/userData.js";
 
 export default function index({ user }) {
-  const userData = useSessionStorage("user");
+  const [name, setName] = useState("");
+  // async function getName() {
+  //   console.log("getting data");
+  //   return await supabase.from("profile").select();
+  // }
+  // useEffect(() => {
+  //   getName().then((data) => {
+  //     if (!data) return;
+  //     console.log(data);
+  //     setName(data.body[0].display_name);
+  //   });
+  // })
+  function getName () {
+      return useSessionStorage().display_name
+  }
+  useEffect(() => {
+    setName(getName())
+  })
   return (
     <section className="bg-gray-50 transition items-center justify-center h-screen grid-bg overflow-x-hidden">
       {Navbar(user)}
@@ -15,7 +33,7 @@ export default function index({ user }) {
                 Welcome To:
               </p>
               <p className="font-bold text-5xl font-mono text-blue-500 drop-shadow-lg">
-                Ako Tech 
+                Ako Tech
               </p>
             </div>
           </div>
@@ -31,7 +49,7 @@ export default function index({ user }) {
                 alt="Profile Image"
               />
               <h5 className="mb-1 text-xl font-medium text-gray-900 ">
-                {userData}
+                {name}
               </h5>
               <span className="text-sm text-gray-500  p-5 px-10">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
