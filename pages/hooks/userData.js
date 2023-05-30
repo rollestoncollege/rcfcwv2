@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@supabase/supabase-js"
+import { supabase } from '../../lib/initSupabase'
+
 
 const useSessionStorage = (name) => {
   const [value, setValue] = useState('')
