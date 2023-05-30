@@ -15,7 +15,7 @@ export default function Navbar(user, current_page) {
             {user ?
               <>
                 <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"  type="button">
-                  <Image src="/blank-user-profile.jpg" width="100" height="100" className="w-10 h-10 rounded-full drop-shadow-xl hover:drop-shadow-lg transition mr-20 md:mr-0" alt='profile image'></Image>
+                  <Image src="https://d1q6c2tim6ecyb.cloudfront.net/blank-user-profile.jpg" width="100" height="100" className="w-10 h-10 rounded-full drop-shadow-xl hover:drop-shadow-lg transition mr-20 md:mr-0" alt='profile image'></Image>
                 </button>
                 <div id="dropdownInformation" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
                   <div class="px-4 py-3 text-sm text-gray-900 ">
@@ -29,9 +29,7 @@ export default function Navbar(user, current_page) {
                     <li>
                       <a href="/profile" class="block px-4 py-2 hover:bg-gray-100 ">Profile</a>
                     </li>
-                    {/* <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
-                    </li> */}
+        
                   </ul>
                   <div class="py-2">
                     <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Sign out</a>

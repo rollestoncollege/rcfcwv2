@@ -10,9 +10,13 @@ const nextConfig = {
       },
     ]
   },
+  images: {
+    domains: ['d1q6c2tim6ecyb.cloudfront.net'],
+  },
 }
 
 module.exports = nextConfig
+
 
   
   
