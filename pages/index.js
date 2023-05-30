@@ -5,23 +5,23 @@ import useSessionStorage from "./hooks/userData.js";
 
 export default function index({ user }) {
   const [name, setName] = useState("");
-  // async function getName() {
-  //   console.log("getting data");
-  //   return await supabase.from("profile").select();
-  // }
-  // useEffect(() => {
-  //   getName().then((data) => {
-  //     if (!data) return;
-  //     console.log(data);
-  //     setName(data.body[0].display_name);
-  //   });
-  // })
-  function getName () {
-      return useSessionStorage().display_name
+  async function getName() {
+    console.log("getting data");
+    return await supabase.from("profile").select();
   }
   useEffect(() => {
-    setName(getName())
+    getName().then((data) => {
+      if (!data) return;
+      console.log(data);
+      setName(data.body[0].display_name);
+    });
   })
+  // function getName () {
+  //     return useSessionStorage().display_name
+  // }
+  // useEffect(() => {
+  //   setName(getName())
+  // })
   return (
     <section className="bg-gray-50 transition items-center justify-center h-screen grid-bg overflow-x-hidden">
       {Navbar(user)}
