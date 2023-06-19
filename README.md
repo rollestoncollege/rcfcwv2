@@ -1,7 +1,6 @@
-## The-Project
+## Rolleston College Film Club Website V2
 
-This app is in early building stages and is broken
+Hi, This is a thing
 
-have a look at https://the-project-test.vercel.app
+have a look at https://www.filmclub.tech
 
-NO HELP IS NEEDED
