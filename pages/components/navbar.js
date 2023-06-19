@@ -8,7 +8,7 @@ export default function Navbar(user, current_page) {
       <nav className=" px-2 sm:px-4 py-2.5  fixed w-full z-20 top-0 left-0 border-b border-gray-200  backdrop-blur-sm">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="/" className="flex items-center drop-shadow-sm">
-            <img src="./logo.png" className="mr-3 h-10" alt="Flowbite Logo"></img>
+            <img src="/logo.png" className="h-12" alt="Flowbite Logo"></img>
           </a>
           <div className="flex md:order-2">
             
@@ -38,14 +38,4 @@ export default function Navbar(user, current_page) {
       </nav>
     </>
   )
-}
-
-export async function getServerSideProps({ req }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req)
-
-  console.log("navbar.js")
-  console.log(user);
-
-  // If there is a user, return it.
-  return { props: { user } }
 }
