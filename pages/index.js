@@ -1,30 +1,9 @@
-import { useEffect, useState } from "react";
-import { supabase } from "../lib/initSupabase";
 import Navbar from "./components/navbar";
-import useSessionStorage from "./hooks/userData.js";
 
 export default function index({ user }) {
-  const [name, setName] = useState("");
-  async function getName() {
-    console.log("getting data");
-    return await supabase.from("profile").select();
-  }
-  useEffect(() => {
-    getName().then((data) => {
-      if (!data) return;
-      console.log(data);
-      setName(data.body[0].display_name);
-    });
-  })
-  // function getName () {
-  //     return useSessionStorage().display_name
-  // }
-  // useEffect(() => {
-  //   setName(getName())
-  // })
   return (
     <section className="bg-gray-50 transition items-center justify-center h-screen grid-bg overflow-x-hidden">
-      {Navbar(user)}
+      {Navbar()}
       <div className="inset-0 flex-col justify-center items z-10 w-screen break-all pt-52">
         <div className="w-full flex items-center ">
           <div className=" w-96 h-96 relative z-0">
@@ -49,7 +28,7 @@ export default function index({ user }) {
                 alt="Profile Image"
               />
               <h5 className="mb-1 text-xl font-medium text-gray-900 ">
-                {name}
+                
               </h5>
               <span className="text-sm text-gray-500  p-5 px-10">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
@@ -74,16 +53,4 @@ export default function index({ user }) {
       </div>
     </section>
   );
-}
-
-export async function getServerSideProps({ req }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-
-  // if (!user) {
-  //   // If no user, redirect to index.
-  //   return { props: {}, redirect: { destination: '/', permanent: false } }
-  // }
-
-  // If there is a user, return it.
-  return { props: { user } };
 }

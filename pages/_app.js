@@ -1,4 +1,3 @@
-import { supabase } from '../lib/initSupabase'
 import './styles/global.css'
 import {useRouter} from "next/router"
 import { useEffect } from 'react';
